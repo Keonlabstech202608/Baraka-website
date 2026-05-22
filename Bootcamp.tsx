@@ -62,3 +62,10 @@ export function useTheme() {
   }
   return context;
 }
+useEffect(() => {
+  const q = query(collection(db, "posts"));
+  onSnapshot(q, 
+    (snap) => console.log("✅ Firestore works:", snap.docs.length),
+    (err) => console.error("❌ Firestore error:", err)
+  );
+}, []);
